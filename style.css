@@ -60,3 +60,13 @@ button {
 button:hover {
     background: #218838;
 }
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
