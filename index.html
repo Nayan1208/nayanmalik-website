@@ -3,26 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - NayanMalik</title>
-    <link rel="stylesheet" href="style.css">
+    <title>LinuxWays</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .logo {
+            font-style: italic;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        nav {
+            position: relative;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .nav-links li a:hover {
+            color: #007BFF;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                font-size: 2em;
+                cursor: pointer;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+                padding: 10px 0;
+            }
+
+            .nav-links li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <h1>NayanMalik</h1>
+        <h1><span class="logo">Linux</span><span class="bold">Ways</span></h1>
+        <p class="subtitle">How-tos and tutorials for sys admins</p>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="courses.html">Courses</a>
-            <a href="subscribe.html">Subscribe</a>
+            <div class="menu-toggle">&#9776;</div>  <!-- Hamburger menu for mobile -->
+            <ul class="nav-links">
+                <li><a href="#">Ubuntu</a></li>
+                <li><a href="#">Debian</a></li>
+                <li><a href="#">Mint</a></li>
+                <li><a href="#">CentOS</a></li>
+                <li><a href="#">openSUSE</a></li>
+                <li><a href="#">Red Hat</a></li>
+                <li><a href="#">Manjaro</a></li>
+                <li><a href="#">Scripting</a></li>
+            </ul>
         </nav>
     </header>
-    <main>
-        <h2>Welcome to NayanMalik Learning Platform</h2>
-        <p>We provide high-quality online courses to help you enhance your skills and achieve your goals.</p>
-        <p>Explore our courses and start learning today!</p>
-        <footer>
-    <p>&copy; 2025 Nayan Malik. All Rights Reserved.</p>
-</footer>
-    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuToggle.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
+
 </body>
 </html>
