@@ -7,140 +7,12 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
+            text-align: center;
         }
 
-        header {
-            background-color: white;
-            padding: 20px;
-            position: relative;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-
-        .logo {
-            font-style: italic;
-        }
-
-        .bold {
-            font-weight: bold;
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        nav {
-            position: relative;
-        }
-
-        .menu-line {
-            display: block;
-            width: 100%;
-            height: 0.5px;
-            background-color: rgba(0, 0, 0, 0.1);
-            position: absolute;
-            left: 0;
-        }
-
-        .menu-line.top {
-            top: 0;
-        }
-
-        .menu-line.bottom {
-            bottom: 0;
-        }
-
-        .nav-links {
-            list-style: none;
-            padding: 10px 0;
-            margin: 20px 0 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            color: black;
-            font-size: 1.1em;
-            font-weight: bold;
-            padding: 10px;
-        }
-
-        .nav-links li a:hover {
-            color: #007BFF;
-        }
-
-        .menu-toggle {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                width: 40px;
-                height: 30px;
-                background-color: #0047ab;
-                border-radius: 5px;
-                cursor: pointer;
-                margin: 5px auto;
-                position: relative;
-            }
-
-            .menu-line.top {
-                top: -2px;
-            }
-
-            .menu-line.bottom {
-                bottom: -2px;
-            }
-
-            .menu-toggle div {
-                width: 25px;
-                height: 3px;
-                background-color: white;
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .menu-toggle.active div:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            .menu-toggle.active div:nth-child(2) {
-                opacity: 0;
-            }
-            .menu-toggle.active div:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background-color: white;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-        }
-
-        /* Blog Section */
         .blog-section {
             width: 80%;
             max-width: 800px;
@@ -149,21 +21,28 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: grid;
+            gap: 20px;
         }
 
-        .blog-section img {
+        .blog-image {
             width: 100%;
             border-radius: 10px;
         }
 
+        .blog-content {
+            display: grid;
+            gap: 10px;
+            text-align: left;
+        }
+
         .blog-title {
-            font-size: 2em;
-            margin: 15px 0;
+            font-size: 1.8em;
             color: #333;
         }
 
         .blog-intro {
-            font-size: 1.1em;
+            font-size: 1em;
             color: #666;
         }
 
@@ -175,7 +54,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
-            margin-top: 15px;
+            width: 100%;
         }
 
         .read-more-btn:hover {
@@ -184,7 +63,6 @@
 
         .full-blog {
             display: none;
-            margin-top: 20px;
             text-align: left;
         }
 
@@ -203,40 +81,20 @@
 </head>
 <body>
 
-    <header>
-        <h1><span class="logo">Linux</span><span class="bold">Ways</span></h1>
-        <p class="subtitle">How-tos and tutorials for sys admins</p>
-        <nav>
-            <div class="menu-line top"></div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="menu-line bottom"></div>
-            <ul class="nav-links">
-                <li><a href="#">Ubuntu</a></li>
-                <li><a href="#">Debian</a></li>
-                <li><a href="#">Mint</a></li>
-                <li><a href="#">CentOS</a></li>
-                <li><a href="#">openSUSE</a></li>
-                <li><a href="#">Red Hat</a></li>
-                <li><a href="#">Manjaro</a></li>
-                <li><a href="#">Scripting</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <section class="blog-section">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/UbuntuCoF.svg" alt="Ubuntu Logo">
-        <h2 class="blog-title">What is Ubuntu?</h2>
-        <p class="blog-intro">
-            Ubuntu is a free and open-source Linux distribution, widely used for personal computers, servers, and cloud computing.
-        </p>
+        <img class="blog-image" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/UbuntuCoF.svg" alt="Ubuntu Logo">
+        
+        <div class="blog-content">
+            <h2 class="blog-title">What is Ubuntu?</h2>
+            <p class="blog-intro">
+                Ubuntu is a free and open-source Linux distribution, widely used for personal computers, servers, and cloud computing.
+            </p>
+        </div>
+
         <button class="read-more-btn" onclick="showFullBlog()">Read More</button>
 
         <div class="full-blog" id="fullBlog">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Ubuntu%28English%29.png" alt="Ubuntu Desktop">
+            <img class="blog-image" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Ubuntu%28English%29.png" alt="Ubuntu Desktop">
             <p>
                 Ubuntu is based on Debian and developed by Canonical Ltd. It comes with a user-friendly interface, robust security, and frequent updates.
             </p>
@@ -247,11 +105,6 @@
     </section>
 
     <script>
-        function toggleMenu() {
-            document.querySelector(".nav-links").classList.toggle("active");
-            document.querySelector(".menu-toggle").classList.toggle("active");
-        }
-
         function showFullBlog() {
             document.getElementById("fullBlog").style.display = "block";
         }
