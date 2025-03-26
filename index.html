@@ -38,127 +38,72 @@
             margin-top: 5px;
         }
 
-        nav {
-            position: relative;
+        /* Blog Section */
+        .blog-section {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Extra thin transparent line above and below */
-        .menu-line {
-            display: block;
+        .blog-section img {
             width: 100%;
-            height: 0.5px;
-            background-color: rgba(0, 0, 0, 0.1); /* Transparent effect */
-            position: absolute;
-            left: 0;
+            border-radius: 10px;
         }
 
-        .menu-line.top {
-            top: 0;
+        .blog-title {
+            font-size: 1.8em;
+            margin: 15px 0;
+            color: #333;
         }
 
-        .menu-line.bottom {
-            bottom: 0;
+        .blog-intro {
+            font-size: 1em;
+            color: #666;
         }
 
-        /* Navigation bar styling */
-        .nav-links {
-            list-style: none;
-            padding: 10px 0;
-            margin: 20px 0 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .read-more-btn {
+            background-color: #0047ab;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 15px;
         }
 
-        .nav-links li {
-            display: inline;
+        .read-more-btn:hover {
+            background-color: #003b8b;
         }
 
-        .nav-links li a {
-            text-decoration: none;
-            color: black;
-            font-size: 1.1em;
-            font-weight: bold;
-            padding: 10px;
-        }
-
-        .nav-links li a:hover {
-            color: #007BFF;
-        }
-
-        /* Hide the menu icon in desktop view */
-        .menu-toggle {
+        /* Hidden detailed blog content */
+        .full-blog {
             display: none;
+            margin-top: 20px;
+        }
+
+        .full-blog p {
+            text-align: left;
+            color: #444;
+            line-height: 1.6;
         }
 
         @media (max-width: 768px) {
-            /* Small and centered hamburger menu */
-            .menu-toggle {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                width: 40px;
-                height: 30px;
-                background-color: #0047ab;
-                border-radius: 5px;
-                padding: 5px 0;
-                cursor: pointer;
-                transition: background-color 0.3s ease-in-out;
-                margin: 5px auto;
-                position: relative;
+            .blog-section {
+                width: 95%;
+                padding: 15px;
             }
 
-            /* Top and bottom lines touching the icon */
-            .menu-line.top {
-                top: -2px;
+            .blog-title {
+                font-size: 1.5em;
             }
 
-            .menu-line.bottom {
-                bottom: -2px;
-            }
-
-            .menu-toggle:hover {
-                background-color: #003b8b;
-            }
-
-            /* White animated lines inside */
-            .menu-toggle div {
-                width: 25px;
-                height: 3px;
-                background-color: white;
-                transition: transform 0.3s ease-in-out;
-            }
-
-            /* Animation for active state */
-            .menu-toggle.active div:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            .menu-toggle.active div:nth-child(2) {
-                opacity: 0;
-            }
-            .menu-toggle.active div:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background-color: white;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            .nav-links li {
-                display: block;
-                margin: 10px 0;
-            }
-
-            .nav-links.active {
-                display: flex;
+            .blog-intro {
+                font-size: 0.9em;
             }
         }
     </style>
@@ -168,37 +113,36 @@
     <header>
         <h1><span class="logo">Linux</span><span class="bold">Ways</span></h1>
         <p class="subtitle">How-tos and tutorials for sys admins</p>
-        <nav>
-            <div class="menu-line top"></div>  <!-- Super thin transparent line above hamburger -->
-            <div class="menu-toggle">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="menu-line bottom"></div>  <!-- Super thin transparent line below hamburger -->
-            <ul class="nav-links">
-                <li><a href="#">Ubuntu</a></li>
-                <li><a href="#">Debian</a></li>
-                <li><a href="#">Mint</a></li>
-                <li><a href="#">CentOS</a></li>
-                <li><a href="#">openSUSE</a></li>
-                <li><a href="#">Red Hat</a></li>
-                <li><a href="#">Manjaro</a></li>
-                <li><a href="#">Scripting</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuToggle = document.querySelector(".menu-toggle");
-            const navLinks = document.querySelector(".nav-links");
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/UbuntuCoF.svg" alt="Ubuntu Logo">
+        <h2 class="blog-title">What is Ubuntu?</h2>
+        <p class="blog-intro">
+            Ubuntu is one of the most popular Linux distributions. It is free, open-source, and widely used for desktops, servers, and cloud computing.
+        </p>
+        <button class="read-more-btn" onclick="showFullBlog()">Read More</button>
 
-            menuToggle.addEventListener("click", function () {
-                navLinks.classList.toggle("active");
-                menuToggle.classList.toggle("active");
-            });
-        });
+        <!-- Hidden Full Blog Content -->
+        <div class="full-blog" id="fullBlog">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Ubuntu%28English%29.png" alt="Ubuntu Desktop">
+            <p>
+                Ubuntu was first released in 2004 and is developed by Canonical. It is based on Debian and provides a user-friendly experience.
+            </p>
+            <p>
+                Ubuntu is known for its security, stability, and extensive community support. It comes with a variety of pre-installed applications and has a large software repository.
+            </p>
+            <p>
+                Whether you are a beginner or an advanced user, Ubuntu offers a powerful platform for both personal and professional use.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        function showFullBlog() {
+            document.getElementById("fullBlog").style.display = "block";
+        }
     </script>
 
 </body>
